@@ -45,7 +45,9 @@ Use the copy function below to do the following:
   2. Return a copy of the received array  
 */
 
-function copy(/*your code here*/){
+function copy(array){
+  const newArray = array
+  return newArray
   /*your code here*/
 }    
 
@@ -64,7 +66,12 @@ For Example: is31Flavors(originalFlavors) will return true if your code is worki
 */
 
 
-function is31Flavors(/*your code here*/){
+function is31Flavors(array){
+  if(array.length === 31){
+    return true
+  } else {
+    return false
+  }
  /*your code here*/
 }
 
@@ -81,7 +88,9 @@ Use the addFlavor function below to do the following:
 */
 
 
-function addFlavor(/*your code here*/){
+function addFlavor(array, newFlavor){
+  array.unshift(newFlavor)
+  return array
  /*your code here*/
 }
 
@@ -97,7 +106,9 @@ Use the removeLastFlavor function below to do the following:
   For example: running removeLastFlavor(originalFlavors) would return ["Rainbow Sherbert", "Banana Nut Fudge",..."Vanilla"]
 */
 
-function removeLastFlavor(/*your code here*/){
+function removeLastFlavor(array){
+  array.pop()
+  return array
  /*your code here*/
 }
 
@@ -114,7 +125,8 @@ Use the getFlavorByIndex function below to do the following:
   For example: running getFlavorByIndex(originalFlavors, 2) would return "Black Walnut", assuming Rainbow Sherbert has been added successfully
 */
 
-function getFlavorByIndex(/*your code here*/){
+function getFlavorByIndex(array, num){
+  return array[num]
   /*your code here*/
 }
 
@@ -134,7 +146,14 @@ Use the removeFlavorByName function below to do the following:
   HINT: You can use .splice() for this
 */
 
-function removeFlavorByName(/*your code here*/){
+function removeFlavorByName(array, flavor){
+  for(let i=0; i<array.length; i++){
+    if(array[i] === flavor){
+      array.splice(i,1)
+    }
+    
+  }
+  return array
   /*your code here*/
 }
 
@@ -160,7 +179,14 @@ Use the filterByWord function below to do the following:
   DO NOT USE ADVANCED ARRAY METHODS (i.e. .filter) to solve this problem. 
 */
 
-function filterByWord(/*your code here*/){
+function filterByWord(array, string){
+  const newArray = []
+  for(let i=0; i<array.length; i++){
+    if(array[i].includes(string)){
+      newArray.push(array[i])
+    }
+  }
+  return newArray
   /*your code here*/
 }
 
@@ -177,10 +203,14 @@ Use the getAverageWordLength function below to do the following:
   For example: getAverageWordLength(originalFlavors) should return a number between 0 and 3.     
 */
 
-function getAverageWordLength(/*code here*/){
+function getAverageWordLength(array){
+  let first = array.length;
+  let second = [array.split(' ')];
+  let result = (second/first);
+  return result
   /*code here*/
 }
-
+console.log(getAverageWordLength(originalFlavors))
 
 /* 💪💪💪💪💪💪💪💪💪💪 STRETCH 2: 💪💪💪💪💪💪💪💪💪
 Baskin Robins now offers new flavors, seasonal flavors, and even regional flavors. Write a function that will randomly select a total of 31 flavors 
